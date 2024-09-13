@@ -303,6 +303,32 @@
           "Scale": 0.2
         }
       ]
+    },
+    {
+      "__guid": "414c3b61-dcbb-403b-8068-3c97c4ce8f90",
+      "Flags": 0,
+      "Name": "Player",
+      "Position": "-141.0654,-146.9636,11.17851",
+      "Enabled": true,
+      "Components": [
+        {
+          "__type": "Sandbox.SkinnedModelRenderer",
+          "__guid": "3e096f76-0442-40d9-acde-d9b985be1f3b",
+          "BodyGroups": 341,
+          "CreateBoneObjects": false,
+          "Model": "models/citizen/citizen.vmdl",
+          "Morphs": {},
+          "RenderOptions": {
+            "GameLayer": true,
+            "OverlayLayer": false,
+            "BloomLayer": false,
+            "AfterUILayer": false
+          },
+          "RenderType": "On",
+          "Tint": "1,1,1,1",
+          "UseAnimGraph": true
+        }
+      ]
     }
   ],
   "SceneProperties": {
