@@ -307,7 +307,7 @@
           "__guid": "3ee1c9f4-07be-4e0b-8b23-67bee2d8ec8a",
           "Flags": 0,
           "Name": "Camera",
-          "Position": "-54.99477,-9.307381,89.75671",
+          "Position": "12.40516,1.29262,62.45691",
           "Rotation": "-0.01271533,0.201533,0.06167081,0.9774556",
           "Enabled": true,
           "Components": [
@@ -361,6 +361,7 @@
               "__type": "Sandbox.Tonemapping",
               "__guid": "9d76f362-7227-40eb-a189-69353c780c46",
               "__version": 1,
+              "AutoExposureEnabled": true,
               "ExposureBias": 2,
               "ExposureCompensation": 0,
               "ExposureMethod": "RGB",
