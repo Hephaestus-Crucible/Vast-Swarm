@@ -1,9 +1,12 @@
-﻿using Input = Sandbox.Input;
+using Input = Sandbox.Input;
 
-class BaseWeapon : Component		//BaseWeapon is a child of Component
+class BaseWeapon : Component        //BaseWeapon is a child of Component
 {
-	[Property] public GameObject Projectile { get; set; }   //Property provides a reference to GameObject that the GameObject is attached,
-														//..allowing the component to modify GameObject properties
+	[Property] public GameObject Projectile { get; set; }
+	//Property provides a reference to GameObject that the GameObject is attached,allowing the component to modify GameObject properties
+	[Property] public GameObject BaseWeaponModel { get; set; }
+	//Property exposes a property for the model to be editable in the editor? working on this.
+
 	protected override void OnUpdate()
 	{
 		if ( IsProxy )                  //Checks if it is a network object owned by another client
@@ -12,21 +15,21 @@ class BaseWeapon : Component		//BaseWeapon is a child of Component
 		}
 
 		var pc = Components.GetInAncestors<VastSwarmPlayer>(); //Assigns pc to type VastSwarmPlayer.
-		//pc now refers to the VastSwarmPlayerComponent
-		//var means if GetInAncestors cannot find VastSwarmPlayer component, pc will be null.
+															   //pc now refers to the VastSwarmPlayerComponent
+															   //var means if GetInAncestors cannot find VastSwarmPlayer component, pc will be null.
 
 		/*Use: You have an entity hierarchy where some parts of the player (like weapons, clothing, or attachments) 
 		 * are separate entities, but you need access to the VastSwarmPlayer component for player-specific logic, 
 		 * this method will allow you to find it.*/
 
 		if ( pc != null )
-			return;	/*If VastSwarmPlayer is found, this essentially cancels a pointless ongoing search.
+			return; /*If VastSwarmPlayer is found, this essentially cancels a pointless ongoing search.
 			       	 Safety Mechanism, protects future overwriting of the component in this instance*/
 
 		var lookDir = pc.EyeAngles.ToRotation();  /*EyeAngles represents where the player is looking in 3Space.
 		lookDir stores the vector result of ToRoation*/
 
-		if ( Input.Pressed( "Attack1" ) )	//If Attack1 bound key is pressed.
+		if ( Input.Pressed( "Attack1" ) )   //If Attack1 bound key is pressed.
 		{
 			var ProjectileSpawnPos = Transform.Position + Vector3.Up * 40.0f + lookDir.Forward.WithZ( 0.0f ) * 50.0f;
 			/*Use: Calculates a position where the projectile will spawn when the player fires.
@@ -40,7 +43,7 @@ class BaseWeapon : Component		//BaseWeapon is a child of Component
 			var ProjectileCopy = Projectile.Clone( ProjectileSpawnPos );
 			/*Clone dulicates Projectile at ProjectileSpawnPos.*/
 
-			ProjectileCopy.Enabled = true; 
+			ProjectileCopy.Enabled = true;
 			/*Enabled method activated the Projectile,becoming active and behaving according to its defined logic.*/
 
 			var ProjectilePhysics = ProjectileCopy.Components.Get<Rigidbody>();
@@ -57,5 +60,5 @@ class BaseWeapon : Component		//BaseWeapon is a child of Component
 			/*Spawns on the network if possible.*/
 		}
 	}
-}
 
+}

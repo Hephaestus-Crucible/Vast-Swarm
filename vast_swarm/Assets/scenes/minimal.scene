@@ -378,6 +378,13 @@
           ]
         }
       ]
+    },
+    {
+      "__guid": "e88389b0-0e49-4cb8-92aa-cb6ae358656e",
+      "Flags": 0,
+      "Name": "BaseWeapon",
+      "Position": "132.0002,-174.3636,71.42197",
+      "Enabled": true
     }
   ],
   "SceneProperties": {
