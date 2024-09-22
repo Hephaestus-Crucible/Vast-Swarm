@@ -308,7 +308,7 @@
           "Flags": 0,
           "Name": "Camera",
           "Position": "12.40516,1.29262,62.45691",
-          "Rotation": "-0.01271533,0.201533,0.06167081,0.9774556",
+          "Rotation": "-0.002911312,0.0461436,0.06290066,0.9969482",
           "Enabled": true,
           "Components": [
             {
@@ -380,11 +380,32 @@
       ]
     },
     {
-      "__guid": "e88389b0-0e49-4cb8-92aa-cb6ae358656e",
+      "__guid": "d25ef681-cceb-4426-8332-defbc239ec80",
       "Flags": 0,
       "Name": "BaseWeapon",
-      "Position": "132.0002,-174.3636,71.42197",
-      "Enabled": true
+      "Position": "-232.0228,-274.9979,85.97588",
+      "Enabled": true,
+      "Components": [
+        {
+          "__type": "BaseWeapon",
+          "__guid": "e24c11ec-c6b7-437c-aba2-c48e6e0daf28"
+        }
+      ]
+    },
+    {
+      "__guid": "bfe5de08-f65d-41f5-b849-5511807fcdf5",
+      "Flags": 0,
+      "Name": "Weapon",
+      "Position": "-232.0228,-274.9979,85.97588",
+      "Enabled": true,
+      "Components": [
+        {
+          "__type": "Weapon",
+          "__guid": "e2fafb73-2752-4e86-a389-5928feb5b981",
+          "ViewModel": "models/first_person/first_person_arms.vmdl",
+          "ViewModelOffset": "0,0,0"
+        }
+      ]
     }
   ],
   "SceneProperties": {

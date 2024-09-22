@@ -1,12 +1,19 @@
 using Input = Sandbox.Input;
 
-class BaseWeapon : Component        //BaseWeapon is a child of Component
+public sealed class BaseWeapon : Component        //BaseWeapon is a child of Component
 {
 	[Property] public GameObject Projectile { get; set; }
+	//Use [RequireComponent] when we have the final descision on what the projectile model will be maybe.
+
+	/*The [Property] version provides flexibility and manual assignment through the editor.The [RequireComponent] version guarantees the
+	 * existence of the required component on the game object, 
+	 * making the code more robust and reducing the risk of runtime errors.*/
 	//Property provides a reference to GameObject that the GameObject is attached,allowing the component to modify GameObject properties
-	[Property] public GameObject BaseWeaponModel { get; set; }
+	//[Property] public GameObject BaseWeapon { get; set; }
 	//Property exposes a property for the model to be editable in the editor? working on this.
 
+	
+	[Property] ModelRenderer BaseWeaponModel { get; set; }	
 	protected override void OnUpdate()
 	{
 		if ( IsProxy )                  //Checks if it is a network object owned by another client
@@ -14,9 +21,10 @@ class BaseWeapon : Component        //BaseWeapon is a child of Component
 			return;
 		}
 
-		var pc = Components.GetInAncestors<VastSwarmPlayer>(); //Assigns pc to type VastSwarmPlayer.
-															   //pc now refers to the VastSwarmPlayerComponent
-															   //var means if GetInAncestors cannot find VastSwarmPlayer component, pc will be null.
+		var pc = Components.GetInAncestors<VastSwarmPlayer>(); 
+		//Assigns pc to type VastSwarmPlayer.
+		//pc now refers to the VastSwarmPlayerComponent
+		//var means if GetInAncestors cannot find VastSwarmPlayer component, pc will be null.
 
 		/*Use: You have an entity hierarchy where some parts of the player (like weapons, clothing, or attachments) 
 		 * are separate entities, but you need access to the VastSwarmPlayer component for player-specific logic, 
@@ -31,6 +39,7 @@ class BaseWeapon : Component        //BaseWeapon is a child of Component
 
 		if ( Input.Pressed( "Attack1" ) )   //If Attack1 bound key is pressed.
 		{
+			Log.Info( "Log: Shot Fired" );
 			var ProjectileSpawnPos = Transform.Position + Vector3.Up * 40.0f + lookDir.Forward.WithZ( 0.0f ) * 50.0f;
 			/*Use: Calculates a position where the projectile will spawn when the player fires.
 				- Transform.Position is the current position of the Player.
@@ -60,5 +69,5 @@ class BaseWeapon : Component        //BaseWeapon is a child of Component
 			/*Spawns on the network if possible.*/
 		}
 	}
-
+	
 }
