@@ -77,13 +77,13 @@
           "GroupName": "Movement"
         },
         {
-          "Name": "Punch",
+          "Name": "Primary Attack",
           "KeyboardCode": "mouse1",
           "GamepadCode": "None",
           "GroupName": "Actions"
         },
         {
-          "Name": "Grab",
+          "Name": "Secondary",
           "KeyboardCode": "mouse2",
           "GamepadCode": "None",
           "GroupName": "Actions"
