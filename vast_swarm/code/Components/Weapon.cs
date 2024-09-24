@@ -42,12 +42,14 @@ public sealed class Weapon : Component
 
 	float ironsights;
 	/*For tracking how zoomed in the player is with the weapon*/
-
+	GameObject viewmodel;
+	/*creates a GameObject called viewmodel*/
 
 	protected override void OnUpdate() /*Called every frame, use for real time tasks (visual updates, input)*/
 	{
+		//position viewmodel()
 		//call animationhandler()
-
+		
 
 	}
 
@@ -73,7 +75,28 @@ public sealed class Weapon : Component
 	/*Ensures smooth transitions between weapon animation states.*/
 	void AnimationHandler()
 	{
+		if ( !(viewmodel?.Components.TryGet<SkinnedModelRenderer>(out var vm) ?? false))
+		{
+			/*prevents NullReferenceException by ennsureing that we only proceed if viewmodel is not null.
+			Components.TryGet<> attempts to get a component of type SkinnedModelRenderer from the viewmodel object’s 
+			Components collection. If the component exists,it stores it in the vm variable and returns true; if not, it returns false.*/
+			/*Ensure that an object or component exists before attempting to use it. 
+			 * It prevents runtime errors by safely checking for null values or missing components.*/
+			return;
+		}
 
+		var VSP = Components.Get <VastSwarmPlayer>( FindMode.InAncestors );
+		/*Sets VSP to player component, using the FindMode.InAncestors, which searches for the Player on the current gameObject,
+		 as well as any of it's parent objects as well, useful when the component is attached to a parent object.
+		 We chose to search for the Player Object because the Player class already wraps the CharacterController and it’s more 
+		 efficient.*/
+
+		ironsights = ironsights.LerpTo( Input.Down( "Secondary" ) ? 1 : 0, Time.Delta * 5.0f );
+		/*Smoothly transitions between aiming and not aiming, Time.Delta *5 controls the speed, the bigger the f, the faster. */
+
+		vm.Set( "ironsights", ironsights );
+		vm.Set( "move_bob", 1 );
+		/**/
 	}
 
 	//Core Weapon Primary Firing Behavior

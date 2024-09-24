@@ -382,6 +382,22 @@
           ]
         }
       ]
+    },
+    {
+      "__guid": "a08aa68e-44bc-4ee9-aae0-661c068eb7e7",
+      "Flags": 0,
+      "Name": "Weapon",
+      "Position": "-27.40512,59.36423,106.0445",
+      "Enabled": true,
+      "Components": [
+        {
+          "__type": "Weapon",
+          "__guid": "05ff7a24-6f33-4ea4-b16a-6207421d6e09",
+          "PrimaryAutomatic": true,
+          "PrimaryFireRate": 0.01,
+          "ViewModelOffset": "0,0,0"
+        }
+      ]
     }
   ],
   "SceneProperties": {
