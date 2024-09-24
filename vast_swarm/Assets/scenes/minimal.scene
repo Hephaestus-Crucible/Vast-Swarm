@@ -308,7 +308,7 @@
           "Flags": 0,
           "Name": "Camera",
           "Position": "12.40516,1.29262,62.45691",
-          "Rotation": "-0.01271533,0.201533,0.06167081,0.9774556",
+          "Rotation": "-0.008817888,0.1397603,0.06234752,0.9881812",
           "Enabled": true,
           "Components": [
             {
@@ -405,5 +405,6 @@
   "Description": "",
   "ResourceVersion": 1,
   "__references": [],
+  "IsValid": true,
   "__version": 1
 }
