@@ -96,7 +96,8 @@ public sealed class Weapon : Component
 
 		vm.Set( "ironsights", ironsights );
 		vm.Set( "move_bob", 1 );
-		/**/
+		/*Sets paramaters in the weapons animation system, animgraph*/
+	
 	}
 
 	//Core Weapon Primary Firing Behavior
