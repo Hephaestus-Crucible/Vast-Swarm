@@ -290,13 +290,17 @@
             "go": "414c3b61-dcbb-403b-8068-3c97c4ce8f90",
             "component_type": "CitizenAnimationHelper"
           },
+          "Camera": {
+            "_type": "gameobject",
+            "go": "3ee1c9f4-07be-4e0b-8b23-67bee2d8ec8a"
+          },
           "Controller": {
             "_type": "component",
             "component_id": "b03b3534-7db3-4d27-a918-8b178d57f4e4",
             "go": "414c3b61-dcbb-403b-8068-3c97c4ce8f90",
             "component_type": "CharacterController"
           },
-          "EyePosition": "0,0,0",
+          "EyePosition": "0,0,64.1999",
           "JumpStrength": 400,
           "RunSpeed": 250,
           "WalkSpeed": 120
