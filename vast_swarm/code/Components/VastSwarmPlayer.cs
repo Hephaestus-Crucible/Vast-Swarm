@@ -48,6 +48,8 @@ public sealed class VastSwarmPlayer : Component
 	/// </summary>
 	[Property]
 	public Vector3 EyePosition { get; set; }
+	//Vector created to determine position of character view in correlation to the world instead of controller
+	public Vector3 EyeWorldPosition => Transform.Local.PointToWorld( EyePosition );
 
 	//EyeAngles is used to keep track of what the character is currently looking at
 	public Angles EyeAngles { get; set; }
@@ -67,7 +69,19 @@ public sealed class VastSwarmPlayer : Component
 		Transform.Rotation = Rotation.FromYaw( EyeAngles.yaw );
 
 		if ( Camera != null )
-			Camera.Transform.Local = _initialCameraTransform.RotateAround( EyePosition, EyeAngles.WithYaw( 0f ) );
+		{
+			//Functions built around ray-tracing in third person view, need to adapt to the first person perspective
+			var cameraTransform = _initialCameraTransform.RotateAround( EyePosition, EyeAngles.WithYaw( 0f ) );
+			var cameraPosition = Transform.Local.PointToWorld( cameraTransform.Position );
+			var cameraTrace = Scene.Trace.Ray( EyeWorldPosition, cameraPosition )
+				.Size( 5f )
+				.IgnoreGameObjectHierarchy( GameObject )
+				.WithoutTags( "player" )
+				.Run();
+			Camera.Transform.Position = cameraTrace.EndPosition;
+			Camera.Transform.LocalRotation = cameraTransform.Rotation;
+		}
+			
 	}
 
 	protected override void OnFixedUpdate()
