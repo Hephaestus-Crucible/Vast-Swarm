@@ -48,6 +48,10 @@ public sealed class Weapon : Component
 
 	Rotation lastRot;
 	//Creates a Rotation Struct called lastRot
+
+	TimeSince timeSinceLastShot = 0.0f;
+
+
 	protected override void OnUpdate() /*Called every frame, use for real time tasks (visual updates, input)*/
 	{
 		PositionViewModel();
@@ -57,7 +61,10 @@ public sealed class Weapon : Component
 
 	protected override void OnFixedUpdate() /*consistent tick, not dependent on framerate, use with physics related tasks*/
 	{
-		base.OnFixedUpdate();
+		if (Input.Down( "Primary Attack" ))
+		{
+			Attack();
+		}
 
 		
 	}
@@ -142,7 +149,23 @@ public sealed class Weapon : Component
 
 	void Attack()
 	{
+		if ( !PrimaryAutomatic && !Input.Pressed("Primary Attack" ))
+		{
+			return;
+		}
+		if ( timeSinceLastShot < PrimaryFireRate)
+		{
+			return;
+		}
 
+		timeSinceLastShot = 0;
+
+		Vector3 shotPosition = Transform.Position;
+
+		if (viewmodel.Components.TryGet<SkinnedModelRenderer>(out var vm))
+		{
+
+		}
 	}
 
 	//Core Weapon Projectile Behavior
@@ -158,7 +181,7 @@ public sealed class Weapon : Component
 		var modelRender = viewmodel.Components.Create<SkinnedModelRenderer>();
 		/* Creates a new SkinnedModelRenderer component and attaches it to the viewmodel object.*/
 		modelRender.Model = ViewModel;
-		/*This sets the model that will be rendered by the SkinnedModelRenderer and assogms to the ViewModel Model*/
+		/*This sets the model that will be rendered by the SkinnedModelRenderer and assigns to the ViewModel Model*/
 		modelRender.CreateBoneObjects = true;
 
 		if ( GraphOverride != null )
@@ -184,7 +207,7 @@ public sealed class Weapon : Component
 
 	void PositionViewModel()
 	{
-		if ( viewmodel != null )
+		if ( viewmodel is null )
 		{
 			return;
 		}
