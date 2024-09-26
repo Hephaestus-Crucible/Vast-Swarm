@@ -222,7 +222,7 @@ public sealed class Weapon : Component
 		}
 		//if trace does not hit anything, or the GameObject it hits is null, return.
 		
-		GameObject.Clone( "\\sbox\\addons\\base\\Assets\\decals\\bullet-metal.decal\"", new Transform( trace.HitPosition + trace.Normal * 2.0f, Rotation.LookAt( trace.Normal ) ) );
+		GameObject.Clone( "\\sbox\\addons\\base\\Assets\\decals\"", new Transform( trace.HitPosition + trace.Normal * 2.0f, Rotation.LookAt( trace.Normal ) ) );
 		/*Creates a new instance of the specified prefab,new Transform defines the position of the new game object.
 		 * trace.normal is the perpendicular normal vector to the surface and scales it by 2 to display at the HitPosition.Rotation.LookAt aligns the impact it hit with the normal
 		   vector or in other words the surface that it hit.*/
@@ -230,21 +230,32 @@ public sealed class Weapon : Component
 			var WeaponHit = GameObject.Clone( "\\sbox\\addons\\base\\Assets\\decals\\bullet-metal.decal" );
 			WeaponHit.Transform.World = new Transform( trace.HitPosition + trace.Normal * 2.0f, Rotation.LookAt( -trace.Normal, Vector3.Random ), System.Random.Shared.Float( 0.8f, 1.2f ) );
 			WeaponHit.SetParent( trace.GameObject );
+			/*Should find the bullet-metal decal or whatever decal/prefab you want to use from the \\Assets\\decals folder or whichever folder you set your
+			 GameOBject clone to. It makes it look more realistic by adding world Transform to make the decal more viewable and whatnot.
+			Then attaches the WeaponHit decal to the GameObject that it hit.*/
 		}
 
 		if ( trace.Body != null )
 		{
 			trace.Body.ApplyImpulseAt( trace.HitPosition, trace.Direction * 200.0f * trace.Body.Mass.Clamp( 0, 200 ) );
 		}
+		/*Applies an impulse force to the physics body at the location where the trace hit, applies the force of 200 in the direction of the trace and
+		 * clampm ensures that the impulse produces realistic behavior depending on the mass of opbjects*/
 
 		var damage = new DamageInfo( 10, GameObject, GameObject, trace.Hitbox );
 		damage.Position = trace.HitPosition;
 		damage.Shape = trace.Shape;
+		/*damage is assigned to a damage event where 1o is the damage amount, and Hitbox defines the area hit.
+		  damage.Position = trace.HitPosition sets the position of the hit so the damage knows where it happened.
+		  damage.shape = trace.shape  attaches the shape of the hit object tot the damage event.*/
+
 
 		foreach ( var damageable in trace.GameObject.Components.GetAll<IDamageable>())
 		{
 			damageable.OnDamage( damage );
 		}
+		/*Finds all components on the hit object that can take damage, then calls the damage handling function applying damage to the object.*/
+
 	}
 
 	void CreateViewModel()
