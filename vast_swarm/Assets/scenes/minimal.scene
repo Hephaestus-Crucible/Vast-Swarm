@@ -387,7 +387,7 @@
       "__guid": "a08aa68e-44bc-4ee9-aae0-661c068eb7e7",
       "Flags": 0,
       "Name": "Weapon",
-      "Position": "-27.40512,59.36423,106.0445",
+      "Position": "-25.1556,59.88406,107.2295",
       "Enabled": true,
       "Components": [
         {
@@ -395,6 +395,7 @@
           "__guid": "05ff7a24-6f33-4ea4-b16a-6207421d6e09",
           "PrimaryAutomatic": true,
           "PrimaryFireRate": 0.01,
+          "ViewModel": "models/weapons/sbox_smg_mp5/v_mp5.vmdl",
           "ViewModelOffset": "0,0,0"
         }
       ]
@@ -424,7 +425,9 @@
   "Title": "minimal",
   "Description": "",
   "ResourceVersion": 1,
-  "__references": [],
+  "__references": [
+    "facepunch.v_mp5"
+  ],
   "IsValid": true,
   "__version": 1
 }

@@ -1,4 +1,5 @@
 using Sandbox;
+using Sandbox.UI;
 
 public sealed class Weapon : Component
 {
@@ -24,7 +25,7 @@ public sealed class Weapon : Component
 	/*USed to assign a specific sound effect in the editor.*/
 
 	[Property]
-	public GameObject PrimaryFireVFXPrefab { get; set; }
+	public GameObject PrimaryFireVFX_Prefab { get; set; }
 	/*Stores weapon firing effect when fired*/
 
 	[Property]
@@ -45,12 +46,13 @@ public sealed class Weapon : Component
 	GameObject viewmodel;
 	/*creates a GameObject called viewmodel*/
 
+	Rotation lastRot;
+	//Creates a Rotation Struct called lastRot
 	protected override void OnUpdate() /*Called every frame, use for real time tasks (visual updates, input)*/
 	{
-		//position viewmodel()
-		//call animationhandler()
+		PositionViewModel();
+		AnimationHandler();
 		
-
 	}
 
 	protected override void OnFixedUpdate() /*consistent tick, not dependent on framerate, use with physics related tasks*/
@@ -63,12 +65,15 @@ public sealed class Weapon : Component
 	protected override void OnEnabled()
 	{
 		//Create the view model for the weapon when switching to it (enables the weapon when switched to)
+		base.OnEnabled();
+		CreateViewModel();
 	}
 
 
 	protected override void OnDisabled()
 	{
-		//Destroy the viewmodel when switching off of the weapon
+		base.OnDisabled();
+		viewmodel?.Destroy();
 	}
 
 
@@ -96,11 +101,45 @@ public sealed class Weapon : Component
 
 		vm.Set( "ironsights", ironsights );
 		vm.Set( "move_bob", 1 );
-		/*Sets paramaters in the weapons animation system, animgraph*/
-	
+		/*Sets paramaters on the SkinnedModelRenderer component, can be used in the animation system, animgraph*/
+
+
+		var rotationDelta = Rotation.Difference( lastRot, Scene.Camera.Transform.Rotation );
+		/*Detects how much the camera has rotated lince last frame, assigns to rotationDelta
+		 Scene.Camera.Transform.Rotation gets the current rotation of the camera in the scene
+		 Useful for having the animation reac to camera rotation, for realism.*/
+
+		lastRot = Scene.Camera.Transform.Rotation;
+		/*Update lastRot to the cameras current rotation. Ensures that the next frame it compares the new rotaion to the previous frame rotatilon*/
+
+		var angles = rotationDelta.Angles();
+		/*angles holds the pitch, yaw, and roll values that represent how much the camera's rotation has changed since the last frame.
+		 struct Rotation.Angles() method converets a quaternion into Euler angles.*/
+
+		vm.Set( "aim_pitch", angles.pitch );
+		vm.Set("aim_yaw", angles.yaw );
+		/*These lines work together to adjust the weapons rotation to match the camera movement. Pitch: Vertical and Yaw: Horizontas movements
+		  Set() method sets a parameter on the SkinnedModelRenderer compoenent*/
+
+		vm.Set( "aim_pitch_inertia", angles.pitch );
+		vm.Set( "aim_yaw_inertia", angles.yaw );
+
+		if ( BodyRenderer != null )
+		{
+			vm.Set( "jump", BodyRenderer.GetBool( "jump" ) );
+			vm.Set( "move_groundspeed", BodyRenderer.GetFloat( "move_groundspeed" ) );
+			vm.Set( "b_grounded", BodyRenderer.GetFloat( "b_grounded" ) );
+			vm.Set( "move_x", BodyRenderer.GetFloat( "move_x" ) );
+			vm.Set( "move_y", BodyRenderer.GetFloat( "move_y" ) );
+			vm.Set( "move_z", BodyRenderer.GetFloat( "move_z" ) );
+		}
+		/*The viewmodel uses these parameters to adjust animations and visual effects, making the first-person weapon or object react realistically to 
+		 * the player's movement and actions. This ensures that the weapon or object in view behaves naturally when the player is moving, jumping, or 
+		 * interacting with the environment.*/
 	}
 
 	//Core Weapon Primary Firing Behavior
+
 	void Attack()
 	{
 
@@ -114,7 +153,21 @@ public sealed class Weapon : Component
 
 	void CreateViewModel()
 	{
-		//Create and configure first person view model of the weapon
+		viewmodel = new GameObject( true, "viewmodel" );
+		
+		var modelRender = viewmodel.Components.Create<SkinnedModelRenderer>();
+		/* C reates a new SkinnedModelRenderer component and attaches it to the viewmodel object.*/
+		modelRender.Model = ViewModel;
+		/*This sets the model that will be rendered by the SkinnedModelRenderer and assogms to the ViewModel Model*/
+		modelRender.CreateBoneObjects = true;
+
+		if ( GraphOverride != null)
+		{
+
+		}
+
+
+
 	}
 
 	void PositionViewModel()
