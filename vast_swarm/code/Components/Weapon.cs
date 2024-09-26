@@ -8,7 +8,7 @@ public sealed class Weapon : Component
 	/*Property holds the 3d model for the weapons view model, can set in the editor to change the appearance.*/
 
 
-	[Property, Group("View Model Offset")]
+	[Property, Group("View Model")]
 	public Vector3 ViewModelOffset { get; set; }
 	/*Defines the offset for the view model. Can adjust the pos of the weapon.*/
 
@@ -208,5 +208,6 @@ public sealed class Weapon : Component
 				// Fallback to a default position if the target position is invalid
 				viewmodel.Transform.World = fallbackPosition;
 			}*/
+
 	}
 }
