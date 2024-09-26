@@ -61,12 +61,12 @@ public sealed class Weapon : Component
 
 	protected override void OnFixedUpdate() /*consistent tick, not dependent on framerate, use with physics related tasks*/
 	{
+		base.OnFixedUpdate();
+
 		if (Input.Down( "Primary Attack" ))
 		{
 			Attack();
 		}
-
-		
 	}
 
 	protected override void OnEnabled()
@@ -220,10 +220,22 @@ public sealed class Weapon : Component
 		{
 			return;
 		}
-		//if trace does not hit 
+		//if trace does not hit anything, or the GameObject it hits is null, return.
+		
+		GameObject.Clone( "\\sbox\\addons\\base\\Assets\\decals\\bullet-metal.decal\"", new Transform( trace.HitPosition + trace.Normal * 2.0f, Rotation.LookAt( trace.Normal ) ) );
+		/*Creates a new instance of the specified prefab,new Transform defines the position of the new game object.
+		 * trace.normal is the perpendicular normal vector to the surface and scales it by 2 to display at the HitPosition.Rotation.LookAt aligns the impact it hit with the normal
+		   vector or in other words the surface that it hit.*/
+		{
+			var WeaponHit = GameObject.Clone( "\\sbox\\addons\\base\\Assets\\decals\\bullet-metal.decal" );
+			WeaponHit.Transform.World = new Transform( trace.HitPosition + trace.Normal * 2.0f, Rotation.LookAt( -trace.Normal, Vector3.Random ), System.Random.Shared.Float( 0.8f, 1.2f ) );
+			WeaponHit.SetParent( trace.GameObject );
+		}
 
-
-
+		if ( trace.Body != null )
+		{
+			trace.Body.ApplyImpulseAt( trace.HitPosition, trace.Direction * 200.0f * trace.Body.Mass.Clamp( 0, 200 ) );
+		}
 
 	}
 
