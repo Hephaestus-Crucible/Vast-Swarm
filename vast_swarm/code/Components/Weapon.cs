@@ -156,22 +156,57 @@ public sealed class Weapon : Component
 		viewmodel = new GameObject( true, "viewmodel" );
 		
 		var modelRender = viewmodel.Components.Create<SkinnedModelRenderer>();
-		/* C reates a new SkinnedModelRenderer component and attaches it to the viewmodel object.*/
+		/* Creates a new SkinnedModelRenderer component and attaches it to the viewmodel object.*/
 		modelRender.Model = ViewModel;
 		/*This sets the model that will be rendered by the SkinnedModelRenderer and assogms to the ViewModel Model*/
 		modelRender.CreateBoneObjects = true;
 
-		if ( GraphOverride != null)
+		if ( GraphOverride != null )
+			modelRender.AnimationGraph = GraphOverride; 
+		/*Assigns GraphOverride to the AnimGraph Propery of the modelRender Component. Ensures the an animgraph is only applied if one has been 
+		 * explicitly set, otherwise it leaves the default animation behavior unchanged.*/
 		{
+			var Arms = new GameObject();
+			Arms.Parent = viewmodel;
+			/*Creates a new GameObject called arms and makes its parent viewmodel, meaning any transformations applied to the viewmodel 
+			 * will apply to the arms as well.*/
 
+			var ArmsModel = Arms.Components.Create<SkinnedModelRenderer>();
+			ArmsModel.Model = Model.Load( "models/first_person/first_person_arms.vmdl" );
+			/*Creates and attaches a SkinnedModelRender component to the arms object. SkinnedModelRenderer handles rendering arm's model and any anims
+			  Model.Load loads the model and assigns it to the 'Armsmodel' component's 'Model' property*/
+
+			ArmsModel.BoneMergeTarget = modelRender;
+			/*BoneMergeTarget property allows the bones of the Arns' model to merge with the bones of the viewmodel. Ensures that the animations or movement
+			 on the viewmodel affect the Arms*/
 		}
-
-
-
 	}
 
 	void PositionViewModel()
 	{
-		//Positions viewmodel in front of the camera.
+		if ( viewmodel != null )
+		{
+			return;
+		}
+
+		var targetPos = Scene.Camera.Transform.World;
+		targetPos.Position += targetPos.Rotation * ViewModelOffset;
+		/*Scene.Camera.Transform.World retrieves the cameras world transform and stores it in TargetPos. 
+		 * targetPos.Position += targetPos.Rotation * ViewModelOffset adjusts the viewmodels pos by adding an offset relative to the camera 
+		   position and rotation. Ensures viewmodel stays aligned in front of the cmera.*/
+
+		viewmodel.Transform.World = targetPos;
+
+		//Add constraints to avoid exploits
+
+		/*if (targetPos.Position.Length < MAX_ALLOWED_DISTANCE)
+			{
+				viewmodel.Transform.World = targetPos;
+			}
+		else
+			{
+				// Fallback to a default position if the target position is invalid
+				viewmodel.Transform.World = fallbackPosition;
+			}*/
 	}
 }
