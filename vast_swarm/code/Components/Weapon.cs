@@ -184,22 +184,46 @@ public sealed class Weapon : Component
 
 
 			GameObject.Clone( "/effects/muzzle.prefab", global::Transform.Zero, muzzle );
+			/*This spawn a clone of the prefab in the world and parented to the muzzle bone, spawning a muzzle flash at the muzzle bone in this case*/
 
-	
-			if ( muzzle != null )
+
+			//Try to figure out how to print a log message if the muzzle.prefab is not found.
+			/*if ( muzzle != null )
 			{
-
-				/*This spawn a clone of the prefab in the world and parented to the muzzle bone, spawning a muzzle flash at the muzzle bone in this case*/
-			}
+			
+				
+			}*/
 
 			Sound.Play( PrimaryFireSound, shotPosition );
 			//plays the primary fire sound at shotPosition
+
+			FireProjectile();
 		}
 	}
 
 	//Core Weapon Projectile Behavior
 	void FireProjectile()
 	{
+		var ray = Scene.Camera.Transform.World.ForwardRay;
+		//Assigns ray to the ForwardRay of the camera in the scene. Generates a ray originatomg from the cameras position pointing in the forward dir.
+
+		ray.Forward += Vector3.Random + 0.01f;
+		//Generates a random 3D vector with random values for X,Y,Z ,+ 0.01f constant adjustment that ensures the ray direction is altered by a fixed amount in addition to the randomness 
+
+		var trace = Scene.Trace.Ray( ray, 4096 ).IgnoreGameObjectHierarchy( GameObject.Parent ).Run();
+		/*Trace casts a ray through the scene for hit detection. We cast ray 4096 units, IgnoreGameObjectHierarch ignores the parent of the game object,
+		 the to avoid having the ray detect the gun istelf, .Run() executes the trace.*/
+
+		//Figure out a way to draw debug trace line for viewing in the editor.
+
+		if ( !trace.Hit || trace.GameObject is null )
+		{
+			return;
+		}
+		//if trace does not hit 
+
+
+
 
 	}
 
