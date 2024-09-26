@@ -149,22 +149,51 @@ public sealed class Weapon : Component
 
 	void Attack()
 	{
-		if ( !PrimaryAutomatic && !Input.Pressed("Primary Attack" ))
+		if ( !PrimaryAutomatic && !Input.Pressed( "Primary Attack" ) )
 		{
 			return;
 		}
-		if ( timeSinceLastShot < PrimaryFireRate)
+		if ( timeSinceLastShot < PrimaryFireRate )
 		{
 			return;
 		}
+		//Handles Exceptions
 
 		timeSinceLastShot = 0;
 
 		Vector3 shotPosition = Transform.Position;
+		//Sets shotPosition to the position of the weapon component
 
-		if (viewmodel.Components.TryGet<SkinnedModelRenderer>(out var vm))
+
+		//viewmodel is a gameobject created when the game is being played. This assigns vm to the SkinnedModelRenderer component in viewmodel
+		if ( viewmodel.Components.TryGet<SkinnedModelRenderer>( out var vm ) )
 		{
+			vm.Set( "b_attack", true );
+			//sets the b_attack parameter to true in the editor and in the animgraph
 
+			var muzzle = vm.GetBoneObject( vm.Model.Bones.GetBone( "muzzle" ) );
+			if ( muzzle == null )
+			{
+				Log.Warning( "Muzzle bone not found. Using default GameObject position." );
+				muzzle = vm.GameObject;
+			}
+			//Retrieves bone named muzzle from model's skeleton and sets it to muzzle, if it isnot found it defaults to using the vm default GameObject
+
+			shotPosition = muzzle.Transform.Position;
+			//Assigns shot position to the position of the muzzle bone
+
+
+			GameObject.Clone( "/effects/muzzle.prefab", global::Transform.Zero, muzzle );
+
+	
+			if ( muzzle != null )
+			{
+
+				/*This spawn a clone of the prefab in the world and parented to the muzzle bone, spawning a muzzle flash at the muzzle bone in this case*/
+			}
+
+			Sound.Play( PrimaryFireSound, shotPosition );
+			//plays the primary fire sound at shotPosition
 		}
 	}
 
@@ -222,7 +251,7 @@ public sealed class Weapon : Component
 
 		//Add constraints to avoid exploits
 
-		/*if (targetPos.Position.Length < MAX_ALLOWED_DISTANCE)
+		/*if (targetPos.Position.Length < 'MAX_ALLOWED_DISTANCE')
 			{
 				viewmodel.Transform.World = targetPos;
 			}
