@@ -237,6 +237,14 @@ public sealed class Weapon : Component
 			trace.Body.ApplyImpulseAt( trace.HitPosition, trace.Direction * 200.0f * trace.Body.Mass.Clamp( 0, 200 ) );
 		}
 
+		var damage = new DamageInfo( 10, GameObject, GameObject, trace.Hitbox );
+		damage.Position = trace.HitPosition;
+		damage.Shape = trace.Shape;
+
+		foreach ( var damageable in trace.GameObject.Components.GetAll<IDamageable>())
+		{
+			damageable.OnDamage( damage );
+		}
 	}
 
 	void CreateViewModel()
