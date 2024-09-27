@@ -55,34 +55,52 @@ public sealed class VastSwarmPlayer : Component
 	public Angles EyeAngles { get; set; }
 	Transform _initialCameraTransform;
 
-	protected override void DrawGizmos()
-	{
-		Gizmo.Draw.LineSphere( EyePosition, 10f );
-	}
 
 	protected override void OnUpdate()
 	{
+		base.OnUpdate();
+
 		//We add AnalogLook to eye angles to determine how far the mouse has moved since the last frame
 		EyeAngles += Input.AnalogLook;
 		EyeAngles = EyeAngles.WithPitch( MathX.Clamp( EyeAngles.pitch, -20f, 20f ) );
 		//Transform.Rotation will now update the player view depending on where the EyeAngles.yaw has been moved to (left to right)
 		Transform.Rotation = Rotation.FromYaw( EyeAngles.yaw );
 
+
+		//This is the new and "improved" version of ray-tracing developed for the first person POV
 		if ( Camera != null )
 		{
-			//Functions built around ray-tracing in third person view, need to adapt to the first person perspective
-			var cameraTransform = _initialCameraTransform.RotateAround( EyePosition, EyeAngles.WithYaw( 0f ) );
-			var cameraPosition = Transform.Local.PointToWorld( cameraTransform.Position );
-			var cameraTrace = Scene.Trace.Ray( EyeWorldPosition, cameraPosition )
-				.Size( 5f )
-				.IgnoreGameObjectHierarchy( GameObject )
-				.WithoutTags( "player" )
+			//Get the current eye position and eye angles for first-person view
+			var eyePosition = EyeWorldPosition;
+			var eyeRotation = EyeAngles;
+
+			// Defining a distance for collision detection with ray-tracing
+			float traceDistance = 10f; // Adjust this distance as needed 
+
+			//Performing ray-tracing in the first-person perspective, 
+			//Tracing a short distance forward to detect potential collisions or obstructions.
+			var forwardTrace = Scene.Trace.Ray( eyePosition, eyePosition + eyeRotation.Forward * traceDistance ) 
+				.Size( 5f ) //Setting the size of trace
+				.IgnoreGameObjectHierarchy( GameObject ) //Ignoring the player's own model
+				.WithoutTags( "player" ) //Avoiding collision with entities tagged as "player"
 				.Run();
-			Camera.Transform.Position = cameraTrace.EndPosition;
-			Camera.Transform.LocalRotation = cameraTransform.Rotation;
+
+			if ( forwardTrace.Hit ) //Adjusting the camera position based on the trace result to avoid clipping through walls
+			{
+				Camera.Transform.Position = forwardTrace.EndPosition; //Moving the camera to the trace hit position, ensuring it doesn't intersect with obstacles
+			}
+
+			//Drawing a gizmo sphere at the final camera position for debugging purposes
+			DrawGizmoAtEyePosition( Camera.Transform.Position );
 		}
 			
 	}
+
+	private void DrawGizmoAtEyePosition(Vector3 position)
+	{
+		Gizmo.Draw.LineSphere( position, 10f );
+	}
+	
 
 	protected override void OnFixedUpdate()
 	{
