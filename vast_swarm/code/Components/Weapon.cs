@@ -183,7 +183,7 @@ public sealed class Weapon : Component
 			//Assigns shot position to the position of the muzzle bone
 
 
-			GameObject.Clone( "/effects/muzzle.prefab", global::Transform.Zero, muzzle );
+			GameObject.Clone( "/Effects/Weapons/muzzle.prefab", global::Transform.Zero, muzzle );
 			/*This spawn a clone of the prefab in the world and parented to the muzzle bone, spawning a muzzle flash at the muzzle bone in this case*/
 
 
@@ -222,12 +222,12 @@ public sealed class Weapon : Component
 		}
 		//if trace does not hit anything, or the GameObject it hits is null, return.
 		
-		GameObject.Clone( "/effects/", new Transform( trace.HitPosition + trace.Normal * 2.0f, Rotation.LookAt( trace.Normal ) ) );
+		GameObject.Clone( "/Effects/Weapons/impact_default.prefab", new Transform( trace.HitPosition + trace.Normal * 2.0f, Rotation.LookAt( trace.Normal ) ) );
 		/*Creates a new instance of the specified prefab,new Transform defines the position of the new game object.
 		 * trace.normal is the perpendicular normal vector to the surface and scales it by 2 to display at the HitPosition.Rotation.LookAt aligns the impact it hit with the normal
 		   vector or in other words the surface that it hit.*/
 		{
-			var WeaponHit = GameObject.Clone( "\\sbox\\addons\\base\\Assets\\decals\\bullet-metal.decal" );
+			var WeaponHit = GameObject.Clone( "/Effects/Weapons/decal_bullet_default.prefab" );
 			WeaponHit.Transform.World = new Transform( trace.HitPosition + trace.Normal * 2.0f, Rotation.LookAt( -trace.Normal, Vector3.Random ), System.Random.Shared.Float( 0.8f, 1.2f ) );
 			WeaponHit.SetParent( trace.GameObject );
 			/*Should find the bullet-metal decal or whatever decal/prefab you want to use from the \\Assets\\decals folder or whichever folder you set your
