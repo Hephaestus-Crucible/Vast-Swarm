@@ -222,7 +222,7 @@ public sealed class Weapon : Component
 		}
 		//if trace does not hit anything, or the GameObject it hits is null, return.
 		
-		GameObject.Clone( "\\sbox\\addons\\base\\Assets\\decals\"", new Transform( trace.HitPosition + trace.Normal * 2.0f, Rotation.LookAt( trace.Normal ) ) );
+		GameObject.Clone( "/effects/", new Transform( trace.HitPosition + trace.Normal * 2.0f, Rotation.LookAt( trace.Normal ) ) );
 		/*Creates a new instance of the specified prefab,new Transform defines the position of the new game object.
 		 * trace.normal is the perpendicular normal vector to the surface and scales it by 2 to display at the HitPosition.Rotation.LookAt aligns the impact it hit with the normal
 		   vector or in other words the surface that it hit.*/
