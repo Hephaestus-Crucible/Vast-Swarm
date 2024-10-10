@@ -242,6 +242,10 @@ public sealed class Weapon : Component
 		/*Applies an impulse force to the physics body at the location where the trace hit, applies the force of 200 in the direction of the trace and
 		 * clampm ensures that the impulse produces realistic behavior depending on the mass of opbjects*/
 
+
+		//Draw Debug Lines
+		//Gizmo.Draw.Line( ray );
+
 		var damage = new DamageInfo( 10, GameObject, GameObject, trace.Hitbox );
 		damage.Position = trace.HitPosition;
 		damage.Shape = trace.Shape;
