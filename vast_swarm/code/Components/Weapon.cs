@@ -1,5 +1,6 @@
 using Sandbox;
 using Sandbox.UI;
+using System.Diagnostics;
 
 public sealed class Weapon : Component
 {
@@ -111,12 +112,12 @@ public sealed class Weapon : Component
 		/*Sets paramaters on the SkinnedModelRenderer component, can be used in the animation system, animgraph*/
 
 
-		var rotationDelta = Rotation.Difference( lastRot, Scene.Camera.Transform.Rotation );
+		var rotationDelta = Rotation.Difference( lastRot, Scene.Camera.WorldRotation );
 		/*Detects how much the camera has rotated lince last frame, assigns to rotationDelta
 		 Scene.Camera.Transform.Rotation gets the current rotation of the camera in the scene
 		 Useful for having the animation reac to camera rotation, for realism.*/
 
-		lastRot = Scene.Camera.Transform.Rotation;
+		lastRot = Scene.Camera.WorldRotation;
 		/*Update lastRot to the cameras current rotation. Ensures that the next frame it compares the new rotaion to the previous frame rotatilon*/
 
 		var angles = rotationDelta.Angles();
@@ -161,7 +162,7 @@ public sealed class Weapon : Component
 
 		timeSinceLastShot = 0;
 
-		Vector3 shotPosition = Transform.Position;
+		Vector3 shotPosition = WorldPosition;
 		//Sets shotPosition to the position of the weapon component
 
 
@@ -179,7 +180,7 @@ public sealed class Weapon : Component
 			}
 			//Retrieves bone named muzzle from model's skeleton and sets it to muzzle, if it isnot found it defaults to using the vm default GameObject
 
-			shotPosition = muzzle.Transform.Position;
+			shotPosition = muzzle.WorldPosition;
 			//Assigns shot position to the position of the muzzle bone
 
 
@@ -214,7 +215,10 @@ public sealed class Weapon : Component
 		/*Trace casts a ray through the scene for hit detection. We cast ray 4096 units, IgnoreGameObjectHierarch ignores the parent of the game object,
 		 the to avoid having the ray detect the gun istelf, .Run() executes the trace.*/
 
-		//Figure out a way to draw debug trace line for viewing in the editor.
+		//Figure out a way to draw debug trace line for viewing in the editor. (Gizmos and or the library(?)
+		//Gizmo.Draw.Line(ray)
+		//DrawGizmos.DrawRay( ray, trace );
+
 
 		if ( !trace.Hit || trace.GameObject is null )
 		{

@@ -426,7 +426,7 @@
   "Description": "",
   "ResourceVersion": 1,
   "__references": [
-    "facepunch.v_mp5"
+    "facepunch.v_mp5#64494"
   ],
   "IsValid": true,
   "__version": 1

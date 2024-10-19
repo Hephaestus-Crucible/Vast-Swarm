@@ -64,7 +64,7 @@ public sealed class VastSwarmPlayer : Component
 		EyeAngles += Input.AnalogLook;
 		EyeAngles = EyeAngles.WithPitch( MathX.Clamp( EyeAngles.pitch, -20f, 20f ) );
 		//Transform.Rotation will now update the player view depending on where the EyeAngles.yaw has been moved to (left to right)
-		Transform.Rotation = Rotation.FromYaw( EyeAngles.yaw );
+		WorldRotation = Rotation.FromYaw( EyeAngles.yaw );
 
 		if ( Camera != null )
 			Camera.Transform.Local = _initialCameraTransform.RotateAround( EyePosition, EyeAngles.WithYaw( 0f ) );
@@ -83,7 +83,7 @@ public sealed class VastSwarmPlayer : Component
 		//This will allow functionality with WASD along with any controller, essentially creating 
 		//universal inputs. Transform.Rotation is multiplied to change velocity vector with player's rotation
 		//Normal vector is used to keep the diagonal movement speed the same as vertical/horizontal
-		var wishVelocity = Input.AnalogMove.Normal * wishSpeed * Transform.Rotation;
+		var wishVelocity = Input.AnalogMove.Normal * wishSpeed * WorldRotation;
 
 		//Accelerating controller based off of the wishVelocity
 		Controller.Accelerate( wishVelocity );
