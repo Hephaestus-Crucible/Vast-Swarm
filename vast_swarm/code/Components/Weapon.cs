@@ -216,8 +216,8 @@ public sealed class Weapon : Component
 		 the to avoid having the ray detect the gun istelf, .Run() executes the trace.*/
 
 		//Figure out a way to draw debug trace line for viewing in the editor. (Gizmos and or the library(?)
-		//Gizmo.Draw.Line(ray)
-		//DrawGizmos.DrawRay( ray, trace );
+		Gizmo.Draw.Line(ray.Position, trace.EndPosition );
+		//DrawGizmos.DrawRay();
 
 
 		if ( !trace.Hit || trace.GameObject is null )
@@ -264,6 +264,11 @@ public sealed class Weapon : Component
 		}
 		/*Finds all components on the hit object that can take damage, then calls the damage handling function applying damage to the object.*/
 
+	}
+
+	private void DrawDebugRay(Vector3 start, Vector3 end)
+	{
+		Gizmo.Draw.Line(start, end);
 	}
 
 	void CreateViewModel()
