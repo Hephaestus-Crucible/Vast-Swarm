@@ -208,7 +208,7 @@ public sealed class Weapon : Component
 		var ray = Scene.Camera.Transform.World.ForwardRay;
 		//Assigns ray to the ForwardRay of the camera in the scene. Generates a ray originatomg from the cameras position pointing in the forward dir.
 
-		ray.Forward += Vector3.Random + 0.01f;
+		ray.Forward += Vector3.Random * 0.01f;
 		//Generates a random 3D vector with random values for X,Y,Z ,+ 0.01f constant adjustment that ensures the ray direction is altered by a fixed amount in addition to the randomness 
 
 		var trace = Scene.Trace.Ray( ray, 4096 ).IgnoreGameObjectHierarchy( GameObject.Parent ).Run();
@@ -216,7 +216,7 @@ public sealed class Weapon : Component
 		 the to avoid having the ray detect the gun istelf, .Run() executes the trace.*/
 
 		//Figure out a way to draw debug trace line for viewing in the editor. (Gizmos and or the library(?)
-		Gizmo.Draw.Line(ray.Position, trace.EndPosition );
+		//Gizmo.Draw.Line(ray.Position, trace.EndPosition );
 		//DrawGizmos.DrawRay();
 
 
