@@ -1,12 +1,12 @@
 {
   "scene.lastopened": {
-    "Value": "\u0022scenes/level_1.scene\u0022",
-    "Timeout": 1730045015,
+    "Value": "[\u0022scenes/minimal.scene\u0022]",
+    "Timeout": 1732405665,
     "DeleteAt": 0
   },
   "scenes/minimal.scene.Viewport0": {
-    "Value": "{\u0022CameraPosition\u0022:\u0022-262.0283,-164.8131,134.0027\u0022,\u0022CameraRotation\u0022:\u00220.007476892,0.3197041,-0.02215276,0.947229\u0022,\u0022View\u0022:0,\u0022RenderMode\u0022:0,\u0022WireframeMode\u0022:false,\u0022EnablePostProcessing\u0022:true,\u0022ShowGrid\u0022:true,\u0022GridOpacity\u0022:0.2,\u0022GridAxis\u0022:0,\u0022CameraOrthoHeight\u0022:1000}",
-    "Timeout": 1729818581,
+    "Value": "{\u0022CameraPosition\u0022:\u0022-262.0283,-164.8131,134.0027\u0022,\u0022CameraRotation\u0022:\u00220.007476892,0.3197041,-0.02215276,0.947229\u0022,\u0022CameraOrthoHeight\u0022:1000}",
+    "Timeout": 1732405767,
     "DeleteAt": 0
   },
   ".Viewport0": {
@@ -17,11 +17,11 @@
   "LastSaveLocation.scene": {
     "Value": "D:/Jean/Perforce/Vast_Swarm/Assets/scenes/test3.scene",
     "Timeout": 1728843346,
-    "DeleteAt": 0
+    "DeleteAt": 1729900047
   },
   "gizmo.settings": {
     "Value": "{\u0022EditMode\u0022:\u0022position\u0022,\u0022Selection\u0022:true,\u0022ViewMode\u0022:\u00223d\u0022,\u0022GizmosEnabled\u0022:true,\u0022GizmoScale\u0022:1,\u0022GridSpacing\u0022:32,\u0022SnapToGrid\u0022:false,\u0022SnapToAngles\u0022:true,\u0022AngleSpacing\u0022:15,\u0022GlobalSpace\u0022:false,\u0022DebugActionGraphs\u0022:false}",
-    "Timeout": 1730045015,
+    "Timeout": 1732405664,
     "DeleteAt": 0
   },
   "expand.00000000-0000-0000-0000-000000000000.GameTransform": {
@@ -77,12 +77,12 @@
   "expand.6ad70641-3c6c-4402-9c85-9a4969af4764.BoxCollider": {
     "Value": "false",
     "Timeout": 1729807631,
-    "DeleteAt": 0
+    "DeleteAt": 1729900047
   },
   "expand.6ad70641-3c6c-4402-9c85-9a4969af4764.ModelRenderer": {
     "Value": "false",
     "Timeout": 1729807631,
-    "DeleteAt": 0
+    "DeleteAt": 1729900047
   },
   "expand.414c3b61-dcbb-403b-8068-3c97c4ce8f90.CitizenAnimationHelper": {
     "Value": "false",
@@ -137,6 +137,11 @@
   "expand.0cc3729e-1530-4524-ae29-5873d25769ec.MapInstance": {
     "Value": "false",
     "Timeout": 1729895035,
+    "DeleteAt": 0
+  },
+  "SceneView.Viewport0.Settings": {
+    "Value": "{\u0022CameraPosition\u0022:\u0022-262.0283,-164.8131,134.0027\u0022,\u0022CameraRotation\u0022:\u00220.007476892,0.3197041,-0.02215276,0.947229\u0022,\u0022View\u0022:0,\u0022RenderMode\u0022:0,\u0022WireframeMode\u0022:false,\u0022EnablePostProcessing\u0022:true,\u0022ShowGrid\u0022:true,\u0022GridOpacity\u0022:0.2,\u0022GridAxis\u0022:0,\u0022CameraOrthoHeight\u0022:1000}",
+    "Timeout": 1732405767,
     "DeleteAt": 0
   }
 }
