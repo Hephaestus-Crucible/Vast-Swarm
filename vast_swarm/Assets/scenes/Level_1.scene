@@ -2,6 +2,21 @@
   "__guid": "70d7a9f9-689d-457d-9554-8803b25a20a6",
   "GameObjects": [
     {
+      "__guid": "8199d443-9385-4d38-915d-e1f3d7b73ccb",
+      "Flags": 0,
+      "Name": "Scene Information",
+      "Enabled": true,
+      "Components": [
+        {
+          "__type": "Sandbox.SceneInformation",
+          "__guid": "9a6a9307-1b52-48db-92c6-b32ba611bb41",
+          "Description": "",
+          "SceneTags": "",
+          "Title": "level_1"
+        }
+      ]
+    },
+    {
       "__guid": "0cc3729e-1530-4524-ae29-5873d25769ec",
       "Flags": 0,
       "Name": "Map",
@@ -50,6 +65,7 @@
         {
           "__type": "Sandbox.SkyBox2D",
           "__guid": "33eec792-174c-43f4-91ad-33b3dab514a1",
+          "SkyIndirectLighting": true,
           "SkyMaterial": "materials/skybox/skybox_day_01.vmat",
           "Tint": "1,1,1,1"
         },
@@ -90,9 +106,13 @@
     "MaxFixedUpdates": 5,
     "NetworkFrequency": 30,
     "NetworkInterpolation": true,
+    "PhysicsSubSteps": 1,
     "ThreadedAnimation": true,
     "TimeScale": 1,
     "UseFixedUpdate": true,
+    "Metadata": {
+      "Title": "level_1"
+    },
     "NavMesh": {
       "Enabled": false,
       "IncludeStaticBodies": true,
@@ -106,10 +126,9 @@
       "IncludedBodies": ""
     }
   },
+  "ResourceVersion": 2,
   "Title": "level_1",
-  "Description": "",
-  "ResourceVersion": 1,
+  "Description": null,
   "__references": [],
-  "IsValid": true,
-  "__version": 1
+  "__version": 2
 }
