@@ -2,7 +2,7 @@ using Sandbox;
 using Sandbox.UI;
 using System.Diagnostics;
 
-public sealed class Weapon : Component
+public class Weapon : Component
 {
 	[Property, Group("View Model")]
 	public Model ViewModel { get; set; }
@@ -148,7 +148,7 @@ public sealed class Weapon : Component
 
 	//Core Weapon Primary Firing Behavior
 
-	void Attack()
+	public virtual void Attack()
 	{
 		if ( !PrimaryAutomatic && !Input.Pressed( "Primary Attack" ) )
 		{
@@ -178,6 +178,7 @@ public sealed class Weapon : Component
 				Log.Warning( "Muzzle bone not found. Using default GameObject position." );
 				muzzle = vm.GameObject;
 			}
+
 			//Retrieves bone named muzzle from model's skeleton and sets it to muzzle, if it isnot found it defaults to using the vm default GameObject
 
 			shotPosition = muzzle.WorldPosition;
@@ -203,7 +204,7 @@ public sealed class Weapon : Component
 	}
 
 	//Core Weapon Projectile Behavior
-	void FireProjectile()
+	public virtual void FireProjectile()
 	{
 		var ray = Scene.Camera.Transform.World.ForwardRay;
 		//Assigns ray to the ForwardRay of the camera in the scene. Generates a ray originatomg from the cameras position pointing in the forward dir.
@@ -264,11 +265,6 @@ public sealed class Weapon : Component
 		}
 		/*Finds all components on the hit object that can take damage, then calls the damage handling function applying damage to the object.*/
 
-	}
-
-	private void DrawDebugRay(Vector3 start, Vector3 end)
-	{
-		Gizmo.Draw.Line(start, end);
 	}
 
 	void CreateViewModel()
