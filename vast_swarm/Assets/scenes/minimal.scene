@@ -2,6 +2,21 @@
   "__guid": "55fbcf33-6d2e-4fd9-b7ba-8ab5665f009d",
   "GameObjects": [
     {
+      "__guid": "ac2dff58-6355-411e-8b5d-c1cf8a673dbf",
+      "Flags": 0,
+      "Name": "Scene Information",
+      "Enabled": true,
+      "Components": [
+        {
+          "__type": "Sandbox.SceneInformation",
+          "__guid": "495cc41f-89bc-440b-8ad3-b8b0309377e7",
+          "Description": "",
+          "SceneTags": "",
+          "Title": "minimal"
+        }
+      ]
+    },
+    {
       "__guid": "bfc59c12-1ed2-4f91-8956-a95a315eac3c",
       "Flags": 0,
       "Name": "Sun",
@@ -30,6 +45,7 @@
         {
           "__type": "Sandbox.SkyBox2D",
           "__guid": "de79e9e0-5c37-4c54-ac67-bfcdb1d5483b",
+          "SkyIndirectLighting": true,
           "SkyMaterial": "materials/skybox/skybox_day_01.vmat",
           "Tint": "1,1,1,1"
         },
@@ -66,6 +82,7 @@
           "__type": "Sandbox.ModelRenderer",
           "__guid": "0b6a18bf-fdb8-4661-970e-ef635bfa9baa",
           "BodyGroups": 18446744073709551615,
+          "CreateAttachments": false,
           "MaterialOverride": "materials/default.vmat",
           "Model": "models/dev/plane.vmdl",
           "RenderOptions": {
@@ -83,7 +100,8 @@
           "Center": "0,0,-5",
           "IsTrigger": false,
           "Scale": "100,100,10",
-          "Static": false
+          "Static": false,
+          "SurfaceVelocity": "0,0,0"
         }
       ]
     },
@@ -100,6 +118,7 @@
           "__type": "Sandbox.ModelRenderer",
           "__guid": "b9121ffa-617c-4ccc-a2aa-8acc98727590",
           "BodyGroups": 18446744073709551615,
+          "CreateAttachments": false,
           "MaterialOverride": "materials/default.vmat",
           "Model": "models/dev/box.vmdl",
           "RenderOptions": {
@@ -117,7 +136,8 @@
           "Center": "0,0,0",
           "IsTrigger": false,
           "Scale": "50,50,50",
-          "Static": false
+          "Static": false,
+          "SurfaceVelocity": "0,0,0"
         },
         {
           "__type": "Sandbox.Rigidbody",
@@ -148,6 +168,7 @@
           "__type": "Sandbox.ModelRenderer",
           "__guid": "9e8a546d-a41d-44b5-9906-22cea00e1066",
           "BodyGroups": 18446744073709551615,
+          "CreateAttachments": false,
           "MaterialOverride": "materials/default.vmat",
           "Model": "models/dev/box.vmdl",
           "RenderOptions": {
@@ -165,7 +186,8 @@
           "Center": "0,0,0",
           "IsTrigger": false,
           "Scale": "50,50,50",
-          "Static": false
+          "Static": false,
+          "SurfaceVelocity": "0,0,0"
         },
         {
           "__type": "Sandbox.Rigidbody",
@@ -196,6 +218,7 @@
           "__type": "Sandbox.ModelRenderer",
           "__guid": "ac284ab8-cdb7-4ba6-92de-d9be36088b1b",
           "BodyGroups": 18446744073709551615,
+          "CreateAttachments": false,
           "MaterialOverride": "materials/default.vmat",
           "Model": "models/dev/box.vmdl",
           "RenderOptions": {
@@ -213,7 +236,8 @@
           "Center": "0,0,0",
           "IsTrigger": false,
           "Scale": "50,50,50",
-          "Static": false
+          "Static": false,
+          "SurfaceVelocity": "0,0,0"
         },
         {
           "__type": "Sandbox.Rigidbody",
@@ -242,9 +266,17 @@
           "__type": "Sandbox.SkinnedModelRenderer",
           "__guid": "3e096f76-0442-40d9-acde-d9b985be1f3b",
           "BodyGroups": 341,
+          "CreateAttachments": false,
           "CreateBoneObjects": false,
           "Model": "models/citizen/citizen.vmdl",
           "Morphs": {},
+          "Parameters": {
+            "bools": {},
+            "ints": {},
+            "floats": {},
+            "vectors": {},
+            "rotations": {}
+          },
           "RenderOptions": {
             "GameLayer": true,
             "OverlayLayer": false,
@@ -252,6 +284,9 @@
             "AfterUILayer": false
           },
           "RenderType": "On",
+          "Sequence": {
+            "Name": null
+          },
           "Tint": "1,1,1,1",
           "UseAnimGraph": true
         },
@@ -271,6 +306,10 @@
           "__type": "Sandbox.Citizen.CitizenAnimationHelper",
           "__guid": "b59af890-7264-491f-b924-364383deeee0",
           "BodyWeight": 1,
+          "EyeSource": {
+            "_type": "gameobject",
+            "go": "3ee1c9f4-07be-4e0b-8b23-67bee2d8ec8a"
+          },
           "EyesWeight": 1,
           "HeadWeight": 1,
           "LookAtEnabled": false,
@@ -300,7 +339,8 @@
             "go": "414c3b61-dcbb-403b-8068-3c97c4ce8f90",
             "component_type": "CharacterController"
           },
-          "EyePosition": "0,0,64.1999",
+          "EyePosition": "3.7,0,64.1999",
+          "FirstPerson": false,
           "JumpStrength": 400,
           "RunSpeed": 250,
           "WalkSpeed": 120
@@ -311,7 +351,7 @@
           "__guid": "3ee1c9f4-07be-4e0b-8b23-67bee2d8ec8a",
           "Flags": 0,
           "Name": "Camera",
-          "Position": "12.40516,1.29262,62.45691",
+          "Position": "14.84111,-1.080795,68.82499",
           "Rotation": "-0.008817888,0.1397603,0.06234752,0.9881812",
           "Enabled": true,
           "Components": [
@@ -389,9 +429,13 @@
     "MaxFixedUpdates": 5,
     "NetworkFrequency": 60,
     "NetworkInterpolation": true,
+    "PhysicsSubSteps": 1,
     "ThreadedAnimation": true,
     "TimeScale": 1,
     "UseFixedUpdate": true,
+    "Metadata": {
+      "Title": "minimal"
+    },
     "NavMesh": {
       "Enabled": false,
       "IncludeStaticBodies": true,
@@ -405,10 +449,9 @@
       "IncludedBodies": ""
     }
   },
+  "ResourceVersion": 2,
   "Title": "minimal",
-  "Description": "",
-  "ResourceVersion": 1,
+  "Description": null,
   "__references": [],
-  "IsValid": true,
-  "__version": 1
+  "__version": 2
 }

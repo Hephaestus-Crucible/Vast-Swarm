@@ -1,5 +1,6 @@
 using Sandbox;
 using Sandbox.Citizen;
+using System.Drawing;
 using System.Security.Cryptography.X509Certificates;
 
 public sealed class VastSwarmPlayer : Component
@@ -15,6 +16,8 @@ public sealed class VastSwarmPlayer : Component
 	[Property]
 	[Category( "Components" )]
 	public CitizenAnimationHelper Animator { get; set; }
+
+	[Property] public bool FirstPerson { get; set; }
 
 	/// <summary>
 	/// How fast you can walk (Units per second) 
@@ -65,12 +68,14 @@ public sealed class VastSwarmPlayer : Component
 		EyeAngles = EyeAngles.WithPitch( MathX.Clamp( EyeAngles.pitch, -45f, 45f ) );
 		//Transform.Rotation will now update the player view depending on where the EyeAngles.yaw has been moved to (left to right)
 		Transform.Rotation = Rotation.FromYaw( EyeAngles.yaw );
+		var cam = Scene.GetAllComponents<CameraComponent>().FirstOrDefault();
 
 		if ( Camera != null )
 		{
+			cam.Transform.Position = EyePosition;
 			Camera.Transform.Local = _initialCameraTransform.RotateAround( EyePosition, EyeAngles.WithYaw( 0f ) );
 
-			
+			//EnableDrawing = false;
 		}
 		else
 		{

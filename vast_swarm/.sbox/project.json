@@ -1,62 +1,52 @@
 {
   "scene.lastopened": {
     "Value": "[\u0022scenes/minimal.scene\u0022]",
-    "Timeout": 1734877545,
+    "Timeout": 1734880464,
     "DeleteAt": 0
   },
   "scenes/minimal.scene.Viewport0": {
-    "Value": "{\u0022CameraPosition\u0022:\u0022-116.3864,-111.2428,89.33103\u0022,\u0022CameraRotation\u0022:\u00220.1727435,0.114165,-0.8161865,0.5394123\u0022,\u0022CameraOrthoHeight\u0022:1000}",
-    "Timeout": 1734879790,
+    "Value": "{\u0022CameraPosition\u0022:\u0022-271.3929,-100.6084,75.75275\u0022,\u0022CameraRotation\u0022:\u0022-0.01020468,0.2196119,0.04528119,0.9744825\u0022,\u0022CameraOrthoHeight\u0022:1000}",
+    "Timeout": 1734883028,
     "DeleteAt": 0
   },
   "SceneView.Viewport0.Settings": {
-    "Value": "{\u0022CameraPosition\u0022:\u0022-116.3864,-111.2428,89.33103\u0022,\u0022CameraRotation\u0022:\u00220.1727435,0.114165,-0.8161865,0.5394123\u0022,\u0022View\u0022:0,\u0022RenderMode\u0022:0,\u0022WireframeMode\u0022:false,\u0022EnablePostProcessing\u0022:true,\u0022ShowGrid\u0022:true,\u0022GridOpacity\u0022:0.2,\u0022GridAxis\u0022:0,\u0022CameraOrthoHeight\u0022:1000}",
-    "Timeout": 1734879790,
+    "Value": "{\u0022CameraPosition\u0022:\u0022-271.3929,-100.6084,75.75275\u0022,\u0022CameraRotation\u0022:\u0022-0.01020468,0.2196119,0.04528119,0.9744825\u0022,\u0022View\u0022:0,\u0022RenderMode\u0022:0,\u0022WireframeMode\u0022:false,\u0022EnablePostProcessing\u0022:true,\u0022ShowGrid\u0022:true,\u0022GridOpacity\u0022:0.2,\u0022GridAxis\u0022:0,\u0022CameraOrthoHeight\u0022:1000}",
+    "Timeout": 1734883028,
     "DeleteAt": 0
   },
   ".Viewport0": {
     "Value": "{\u0022CameraPosition\u0022:\u0022-127.1441,-145.671,73.63542\u0022,\u0022CameraRotation\u0022:\u0022-0.008817888,0.1397603,0.06234752,0.9881812\u0022,\u0022CameraOrthoHeight\u0022:1000}",
-    "Timeout": 1734878805,
+    "Timeout": 1734882931,
     "DeleteAt": 0
   },
   "SceneView.Layout": {
     "Value": "{\u0022Layout\u0022:0,\u0022SplitterState\u0022:[]}",
-    "Timeout": 1734878805,
+    "Timeout": 1734883028,
     "DeleteAt": 0
   },
   "expand.414c3b61-dcbb-403b-8068-3c97c4ce8f90.CharacterController": {
     "Value": "false",
-    "Timeout": 1734878962,
-    "DeleteAt": 0
-  },
-  "expand.414c3b61-dcbb-403b-8068-3c97c4ce8f90.VastSwarmPlayer": {
-    "Value": "false",
-    "Timeout": 1734878903,
+    "Timeout": 1734882816,
     "DeleteAt": 0
   },
   "expand.3ee1c9f4-07be-4e0b-8b23-67bee2d8ec8a.CameraComponent": {
     "Value": "false",
-    "Timeout": 1734878755,
-    "DeleteAt": 0
-  },
-  "expand.3ee1c9f4-07be-4e0b-8b23-67bee2d8ec8a.Bloom": {
-    "Value": "false",
-    "Timeout": 1734878755,
+    "Timeout": 1734883004,
     "DeleteAt": 0
   },
   "expand.3ee1c9f4-07be-4e0b-8b23-67bee2d8ec8a.Tonemapping": {
     "Value": "false",
-    "Timeout": 1734878755,
+    "Timeout": 1734883004,
     "DeleteAt": 0
   },
   "expand.3ee1c9f4-07be-4e0b-8b23-67bee2d8ec8a.Sharpen": {
     "Value": "false",
-    "Timeout": 1734878755,
+    "Timeout": 1734883004,
     "DeleteAt": 0
   },
   "expand.414c3b61-dcbb-403b-8068-3c97c4ce8f90.SkinnedModelRenderer": {
     "Value": "false",
-    "Timeout": 1734878805,
+    "Timeout": 1734882812,
     "DeleteAt": 0
   },
   "folder-metadata": {
@@ -72,11 +62,6 @@
   "AssetBrowser.Prefab.HistoryIdx": {
     "Value": "6",
     "Timeout": 1734877930,
-    "DeleteAt": 0
-  },
-  "expand.414c3b61-dcbb-403b-8068-3c97c4ce8f90.CitizenAnimationHelper": {
-    "Value": "false",
-    "Timeout": 1734878963,
     "DeleteAt": 0
   }
 }
