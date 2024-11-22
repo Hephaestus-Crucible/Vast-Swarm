@@ -1,0 +1,27 @@
+{
+  "scene.lastopened": {
+    "Value": "[\u0022scenes/minimal.scene\u0022]",
+    "Timeout": 1734877545,
+    "DeleteAt": 0
+  },
+  "scenes/minimal.scene.Viewport0": {
+    "Value": "{\u0022CameraPosition\u0022:\u0022-127.1441,-145.671,73.63542\u0022,\u0022CameraRotation\u0022:\u0022-0.008817888,0.1397603,0.06234752,0.9881812\u0022,\u0022CameraOrthoHeight\u0022:1000}",
+    "Timeout": 1734877690,
+    "DeleteAt": 0
+  },
+  "SceneView.Viewport0.Settings": {
+    "Value": "{\u0022CameraPosition\u0022:\u0022-127.1441,-145.671,73.63542\u0022,\u0022CameraRotation\u0022:\u0022-0.008817888,0.1397603,0.06234752,0.9881812\u0022,\u0022View\u0022:0,\u0022RenderMode\u0022:0,\u0022WireframeMode\u0022:false,\u0022EnablePostProcessing\u0022:true,\u0022ShowGrid\u0022:true,\u0022GridOpacity\u0022:0.2,\u0022GridAxis\u0022:0,\u0022CameraOrthoHeight\u0022:1000}",
+    "Timeout": 1734877690,
+    "DeleteAt": 0
+  },
+  ".Viewport0": {
+    "Value": "{\u0022CameraPosition\u0022:\u0022-127.1441,-145.671,73.63542\u0022,\u0022CameraRotation\u0022:\u0022-0.008817888,0.1397603,0.06234752,0.9881812\u0022,\u0022CameraOrthoHeight\u0022:1000}",
+    "Timeout": 1734877656,
+    "DeleteAt": 0
+  },
+  "SceneView.Layout": {
+    "Value": "{\u0022Layout\u0022:0,\u0022SplitterState\u0022:[]}",
+    "Timeout": 1734877656,
+    "DeleteAt": 0
+  }
+}

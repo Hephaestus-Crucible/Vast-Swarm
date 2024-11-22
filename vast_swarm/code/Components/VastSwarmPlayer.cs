@@ -62,7 +62,7 @@ public sealed class VastSwarmPlayer : Component
 	{
 		//We add AnalogLook to eye angles to determine how far the mouse has moved since the last frame
 		EyeAngles += Input.AnalogLook;
-		EyeAngles = EyeAngles.WithPitch( MathX.Clamp( EyeAngles.pitch, -20f, 20f ) );
+		EyeAngles = EyeAngles.WithPitch( MathX.Clamp( EyeAngles.pitch, -45f, 45f ) );
 		//Transform.Rotation will now update the player view depending on where the EyeAngles.yaw has been moved to (left to right)
 		Transform.Rotation = Rotation.FromYaw( EyeAngles.yaw );
 
