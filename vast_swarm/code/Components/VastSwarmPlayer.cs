@@ -67,7 +67,15 @@ public sealed class VastSwarmPlayer : Component
 		Transform.Rotation = Rotation.FromYaw( EyeAngles.yaw );
 
 		if ( Camera != null )
+		{
 			Camera.Transform.Local = _initialCameraTransform.RotateAround( EyePosition, EyeAngles.WithYaw( 0f ) );
+
+			
+		}
+		else
+		{
+			
+		}
 	}
 
 	protected override void OnFixedUpdate()

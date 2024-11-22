@@ -5,23 +5,78 @@
     "DeleteAt": 0
   },
   "scenes/minimal.scene.Viewport0": {
-    "Value": "{\u0022CameraPosition\u0022:\u0022-127.1441,-145.671,73.63542\u0022,\u0022CameraRotation\u0022:\u0022-0.008817888,0.1397603,0.06234752,0.9881812\u0022,\u0022CameraOrthoHeight\u0022:1000}",
-    "Timeout": 1734877690,
+    "Value": "{\u0022CameraPosition\u0022:\u0022-116.3864,-111.2428,89.33103\u0022,\u0022CameraRotation\u0022:\u00220.1727435,0.114165,-0.8161865,0.5394123\u0022,\u0022CameraOrthoHeight\u0022:1000}",
+    "Timeout": 1734879790,
     "DeleteAt": 0
   },
   "SceneView.Viewport0.Settings": {
-    "Value": "{\u0022CameraPosition\u0022:\u0022-127.1441,-145.671,73.63542\u0022,\u0022CameraRotation\u0022:\u0022-0.008817888,0.1397603,0.06234752,0.9881812\u0022,\u0022View\u0022:0,\u0022RenderMode\u0022:0,\u0022WireframeMode\u0022:false,\u0022EnablePostProcessing\u0022:true,\u0022ShowGrid\u0022:true,\u0022GridOpacity\u0022:0.2,\u0022GridAxis\u0022:0,\u0022CameraOrthoHeight\u0022:1000}",
-    "Timeout": 1734877690,
+    "Value": "{\u0022CameraPosition\u0022:\u0022-116.3864,-111.2428,89.33103\u0022,\u0022CameraRotation\u0022:\u00220.1727435,0.114165,-0.8161865,0.5394123\u0022,\u0022View\u0022:0,\u0022RenderMode\u0022:0,\u0022WireframeMode\u0022:false,\u0022EnablePostProcessing\u0022:true,\u0022ShowGrid\u0022:true,\u0022GridOpacity\u0022:0.2,\u0022GridAxis\u0022:0,\u0022CameraOrthoHeight\u0022:1000}",
+    "Timeout": 1734879790,
     "DeleteAt": 0
   },
   ".Viewport0": {
     "Value": "{\u0022CameraPosition\u0022:\u0022-127.1441,-145.671,73.63542\u0022,\u0022CameraRotation\u0022:\u0022-0.008817888,0.1397603,0.06234752,0.9881812\u0022,\u0022CameraOrthoHeight\u0022:1000}",
-    "Timeout": 1734877656,
+    "Timeout": 1734878805,
     "DeleteAt": 0
   },
   "SceneView.Layout": {
     "Value": "{\u0022Layout\u0022:0,\u0022SplitterState\u0022:[]}",
-    "Timeout": 1734877656,
+    "Timeout": 1734878805,
+    "DeleteAt": 0
+  },
+  "expand.414c3b61-dcbb-403b-8068-3c97c4ce8f90.CharacterController": {
+    "Value": "false",
+    "Timeout": 1734878962,
+    "DeleteAt": 0
+  },
+  "expand.414c3b61-dcbb-403b-8068-3c97c4ce8f90.VastSwarmPlayer": {
+    "Value": "false",
+    "Timeout": 1734878903,
+    "DeleteAt": 0
+  },
+  "expand.3ee1c9f4-07be-4e0b-8b23-67bee2d8ec8a.CameraComponent": {
+    "Value": "false",
+    "Timeout": 1734878755,
+    "DeleteAt": 0
+  },
+  "expand.3ee1c9f4-07be-4e0b-8b23-67bee2d8ec8a.Bloom": {
+    "Value": "false",
+    "Timeout": 1734878755,
+    "DeleteAt": 0
+  },
+  "expand.3ee1c9f4-07be-4e0b-8b23-67bee2d8ec8a.Tonemapping": {
+    "Value": "false",
+    "Timeout": 1734878755,
+    "DeleteAt": 0
+  },
+  "expand.3ee1c9f4-07be-4e0b-8b23-67bee2d8ec8a.Sharpen": {
+    "Value": "false",
+    "Timeout": 1734878755,
+    "DeleteAt": 0
+  },
+  "expand.414c3b61-dcbb-403b-8068-3c97c4ce8f90.SkinnedModelRenderer": {
+    "Value": "false",
+    "Timeout": 1734878805,
+    "DeleteAt": 0
+  },
+  "folder-metadata": {
+    "Value": "{\u0022..\\\\..\\\\..\\\\SteamLibraryBig\\\\steamapps\\\\common\\\\sbox\\\\Recents\u0022:{\u0022Color\u0022:\u00220.46667,0.73333,1,1\u0022,\u0022Icon\u0022:\u0022\u0022},\u0022..\\\\..\\\\..\\\\SteamLibraryBig\\\\steamapps\\\\common\\\\sbox\\\\Everything\u0022:{\u0022Color\u0022:\u00220.46667,0.73333,1,1\u0022,\u0022Icon\u0022:\u0022\u0022},\u0022.\u0022:{\u0022Color\u0022:\u00220.46667,0.73333,1,1\u0022,\u0022Icon\u0022:\u0022\u0022},\u0022..\\\\..\\\\..\\\\SteamLibraryBig\\\\steamapps\\\\common\\\\sbox\\\\addons\\\\citizen\\\\assets\u0022:{\u0022Color\u0022:\u00220.46667,0.73333,1,1\u0022,\u0022Icon\u0022:\u0022\u0022},\u0022..\\\\..\\\\..\\\\SteamLibraryBig\\\\steamapps\\\\common\\\\sbox\\\\core\u0022:{\u0022Color\u0022:\u00220.46667,0.73333,1,1\u0022,\u0022Icon\u0022:\u0022\u0022},\u0022Assets\\\\Effects\u0022:{\u0022Color\u0022:\u00220.46667,0.73333,1,1\u0022,\u0022Icon\u0022:\u0022\u0022},\u0022Assets\\\\Maps\u0022:{\u0022Color\u0022:\u00220.46667,0.73333,1,1\u0022,\u0022Icon\u0022:\u0022\u0022},\u0022Assets\\\\Prefab\u0022:{\u0022Color\u0022:\u00220.46667,0.73333,1,1\u0022,\u0022Icon\u0022:\u0022\u0022},\u0022Assets\\\\scenes\u0022:{\u0022Color\u0022:\u00220.46667,0.73333,1,1\u0022,\u0022Icon\u0022:\u0022\u0022},\u0022Assets\u0022:{\u0022Color\u0022:\u00220.46667,0.73333,1,1\u0022,\u0022Icon\u0022:\u0022\u0022},\u0022code\u0022:{\u0022Color\u0022:\u00220.46667,0.73333,1,1\u0022,\u0022Icon\u0022:\u0022\u0022},\u0022Editor\u0022:{\u0022Color\u0022:\u00220.46667,0.73333,1,1\u0022,\u0022Icon\u0022:\u0022\u0022},\u0022Localization\u0022:{\u0022Color\u0022:\u00220.46667,0.73333,1,1\u0022,\u0022Icon\u0022:\u0022\u0022},\u0022ProjectSettings\u0022:{\u0022Color\u0022:\u00220.46667,0.73333,1,1\u0022,\u0022Icon\u0022:\u0022\u0022},\u0022code\\\\Components\u0022:{\u0022Color\u0022:\u00220.46667,0.73333,1,1\u0022,\u0022Icon\u0022:\u0022\u0022},\u0022Editor\\\\Components\u0022:{\u0022Color\u0022:\u00220.46667,0.73333,1,1\u0022,\u0022Icon\u0022:\u0022\u0022},\u0022Assets\\\\Effects\\\\Weapons\u0022:{\u0022Color\u0022:\u00220.46667,0.73333,1,1\u0022,\u0022Icon\u0022:\u0022\u0022}}",
+    "Timeout": 1734877918,
+    "DeleteAt": 0
+  },
+  "AssetBrowser.Prefab.History": {
+    "Value": "[\u0022D:\\\\S\\u0026box Projects\\\\Vast-Swarm\\\\vast_swarm\\\\Assets\u0022,\u0022D:\\\\S\\u0026box Projects\\\\Vast-Swarm\\\\vast_swarm\\\\Assets\u0022,\u0022D:\\\\S\\u0026box Projects\\\\Vast-Swarm\\\\vast_swarm\\\\code\u0022,\u0022D:\\\\S\\u0026box Projects\\\\Vast-Swarm\\\\vast_swarm\\\\code\\\\Components\u0022,\u0022D:\\\\S\\u0026box Projects\\\\Vast-Swarm\\\\vast_swarm\\\\code\u0022,\u0022D:\\\\S\\u0026box Projects\\\\Vast-Swarm\\\\vast_swarm\\\\Localization\u0022,\u0022D:\\\\S\\u0026box Projects\\\\Vast-Swarm\\\\vast_swarm\\\\ProjectSettings\u0022]",
+    "Timeout": 1734877930,
+    "DeleteAt": 0
+  },
+  "AssetBrowser.Prefab.HistoryIdx": {
+    "Value": "6",
+    "Timeout": 1734877930,
+    "DeleteAt": 0
+  },
+  "expand.414c3b61-dcbb-403b-8068-3c97c4ce8f90.CitizenAnimationHelper": {
+    "Value": "false",
+    "Timeout": 1734878963,
     "DeleteAt": 0
   }
 }
