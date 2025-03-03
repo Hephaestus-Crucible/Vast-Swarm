@@ -28,6 +28,21 @@ public partial class EnemySpawner : Component
 		_activeEnemies.RemoveAll( equals => !equals.isValid() );
 	}
 
+	public void SpawnEnemy()
+	{
+		if ( SpawnPoints.Count == 0 ) return;
+
+		//Picking a random spawn point
+		Vector3 spawnPos = SpawnPoints[Game.Random.Int( 0, SpawnPoints.Count - 1 )];
+
+		//Create an enemy instance
+		var enemy = new GameObject();
+		enemy.Components.Create<Enemy>(); //Attack the Enemy Component
+		enemy.WorldPosition = spawnPos; //Setting the spawn position
+
+		_activeEnemies.Add( enemy.Components.Get<Enemy>()); //Track the enemy
+	}
+
 
 
 	
