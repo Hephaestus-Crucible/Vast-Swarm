@@ -711,7 +711,7 @@
       "__guid": "2ac4772f-996d-4dc4-a2fa-9fe4504d7e27",
       "Flags": 0,
       "Name": "Enemy Spawner",
-      "Position": "192,-768,-32",
+      "Position": "0,0,8.49999",
       "Enabled": true,
       "Components": [
         {
@@ -726,19 +726,10 @@
           "OnComponentUpdate": null,
           "SpawnInterval": 5,
           "SpawnPoints": [
-            "205.165,-763.361,-47.107"
+            "0,0,0"
           ]
         }
       ]
-    },
-    {
-      "__guid": "4fa05ddd-7492-4e44-a41b-490fe14a2a5c",
-      "Flags": 0,
-      "Name": "Enemy",
-      "Position": "-327.6737,-297.6675,53.18939",
-      "Enabled": true,
-      "__Prefab": "prefab/test_enemy.prefab",
-      "__PrefabVariables": {}
     }
   ],
   "SceneProperties": {
