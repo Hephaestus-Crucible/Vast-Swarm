@@ -220,7 +220,7 @@
           "RunSpeed": 320,
           "ShowColliderComponents": false,
           "ShowRigidbodyComponent": false,
-          "ThirdPerson": true,
+          "ThirdPerson": false,
           "ToggleCameraModeButton": "view",
           "UseAnimatorControls": true,
           "UseButton": "use",
@@ -479,7 +479,28 @@
           "OnObjectTriggerExit": null,
           "OnTriggerEnter": null,
           "OnTriggerExit": null,
-          "Scale": "200,75,50",
+          "Scale": "272.2019,50.4002,50",
+          "Static": false,
+          "Surface": null,
+          "SurfaceVelocity": "0,0,0"
+        },
+        {
+          "__type": "Sandbox.BoxCollider",
+          "__guid": "e9a3ddad-c870-497e-8d6a-f3421faa6dcc",
+          "Center": "0,0,0",
+          "Friction": null,
+          "IsTrigger": false,
+          "OnComponentDestroy": null,
+          "OnComponentDisabled": null,
+          "OnComponentEnabled": null,
+          "OnComponentFixedUpdate": null,
+          "OnComponentStart": null,
+          "OnComponentUpdate": null,
+          "OnObjectTriggerEnter": null,
+          "OnObjectTriggerExit": null,
+          "OnTriggerEnter": null,
+          "OnTriggerExit": null,
+          "Scale": "50,50,50",
           "Static": false,
           "Surface": null,
           "SurfaceVelocity": "0,0,0"
@@ -493,6 +514,7 @@
             "go": "7bd8be2a-e051-442f-aaf8-5e5b5e4bee81",
             "component_type": "Barrier"
           },
+          "BarrierUI": null,
           "OnComponentDestroy": null,
           "OnComponentDisabled": null,
           "OnComponentEnabled": null,
@@ -512,6 +534,41 @@
           "OnComponentUpdate": null,
           "RaiseHeight": 200,
           "RaiseSpeed": 5
+        }
+      ],
+      "Children": [
+        {
+          "__guid": "2efa987c-6e68-4aa7-90fd-40b79053ac3d",
+          "Flags": 0,
+          "Name": "Screen",
+          "Enabled": true,
+          "Components": [
+            {
+              "__type": "Sandbox.ScreenPanel",
+              "__guid": "f82c27e9-2368-4108-9404-b39c50704ebc",
+              "AutoScreenScale": true,
+              "OnComponentDestroy": null,
+              "OnComponentDisabled": null,
+              "OnComponentEnabled": null,
+              "OnComponentFixedUpdate": null,
+              "OnComponentStart": null,
+              "OnComponentUpdate": null,
+              "Opacity": 1,
+              "Scale": 1,
+              "ScaleStrategy": "ConsistentHeight",
+              "ZIndex": 100
+            },
+            {
+              "__type": "Sandbox.BarrierUI",
+              "__guid": "dd59be2d-25db-4576-96f6-4973753ba444",
+              "OnComponentDestroy": null,
+              "OnComponentDisabled": null,
+              "OnComponentEnabled": null,
+              "OnComponentFixedUpdate": null,
+              "OnComponentStart": null,
+              "OnComponentUpdate": null
+            }
+          ]
         }
       ]
     }

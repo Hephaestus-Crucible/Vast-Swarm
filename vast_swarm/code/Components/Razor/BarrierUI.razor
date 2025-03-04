@@ -1,0 +1,30 @@
+﻿@using Sandbox;
+@using Sandbox.UI;
+@inherits PanelComponent
+@namespace Sandbox
+
+@code {
+	private bool _isVisible = false;
+
+	[Parameter] public string Message { get; set; } = "Press E to remove barrier";
+	[Parameter] 
+	public bool IsVisible
+	{
+		get => _isVisible;
+		set
+		{
+			_isVisible = value;
+			StateHasChanged(); // ✅ Force UI to update when visibility changes
+		}
+	}
+}
+
+}
+
+@if (IsVisible)
+{
+	<div class="barrier-ui">
+		@Message
+	</div>
+}
+

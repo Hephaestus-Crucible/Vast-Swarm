@@ -4,20 +4,15 @@ using Sandbox.UI;
 public sealed class BarrierInteract : Component, Component.ITriggerListener, Component.ICollisionListener
 {
 	[Property] public Barrier Barrier;
+	[Property] public BarrierUI BarrierUI;
 
 	private bool isPlayerInRange = false;
-	//private BarrierUI barrierUI;
+	
 
 
 	protected override void OnStart()
 	{
-		/*barrierUI = Game.ActiveScene.GetAllComponents<BarrierUI>().FirstOrDefault();
-		if ( barrierUI == null )
-		{
-			barrierUI = new BarrierUI();
-			Game.ActiveScene.AddComponent<BarrierUI>();
-		}*/
-
+		
 		var collider = GameObject.Components.Get<BoxCollider>();
 		if ( collider != null )
 		{
@@ -26,6 +21,19 @@ public sealed class BarrierInteract : Component, Component.ITriggerListener, Com
 		else
 		{
 			Log.Warning( "Barrier Interact requires a collider component set as a trigger" );
+		}
+
+		if ( BarrierUI == null )
+		{
+			BarrierUI = Game.ActiveScene.GetAllComponents<BarrierUI>().FirstOrDefault();
+			if ( BarrierUI == null )
+			{
+				Log.Error( "No BarrierUI found in the scene" );
+			}
+			else
+			{
+				Log.Info( $"BarrierUI found in Play Mode: {BarrierUI.GameObject.Name}" );
+			}
 		}
 	}
 
@@ -50,8 +58,10 @@ public sealed class BarrierInteract : Component, Component.ITriggerListener, Com
 		if ( Other.GameObject.Tags.Has( "player" ))				//ensure that its a player
 		{
 			isPlayerInRange = true;
-			//barrierUI.Message = "Press E to remove barrier";
-			//barrierUI.IsVisible = true;
+			if ( BarrierUI != null )
+			{
+				BarrierUI.IsVisible = true;
+			}
 		}
 
 	}
@@ -61,7 +71,10 @@ public sealed class BarrierInteract : Component, Component.ITriggerListener, Com
 		if( Other.GameObject.Tags.Has( "player" ) )
 		{
 			isPlayerInRange = false;
-			//barrierUI.IsVisible = false;
+			if ( BarrierUI != null )
+			{
+				BarrierUI.IsVisible = false;
+			}
 		}
 	}
 }

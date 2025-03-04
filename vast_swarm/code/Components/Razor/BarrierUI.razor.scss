@@ -1,0 +1,17 @@
+﻿
+.barrier-ui {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 32px; /* ✅ Increase text size */
+    font-weight: 900; /* ✅ Make text bold */
+    color: white; /* ✅ Make text white */
+
+    background: none; /* ✅ Remove background */
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* ✅ Add slight shadow for visibility */
+
+    text-align: center;
+    padding: 10px 20px;
+    z-index: 9999; /* Ensure UI stays on top */
+}
