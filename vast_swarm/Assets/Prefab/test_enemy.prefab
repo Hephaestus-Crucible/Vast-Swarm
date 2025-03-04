@@ -1,0 +1,54 @@
+{
+  "RootObject": {
+    "__guid": "4fa05ddd-7492-4e44-a41b-490fe14a2a5c",
+    "Flags": 0,
+    "Name": "Enemy",
+    "Position": "-327.6737,-297.6675,53.18939",
+    "Enabled": true,
+    "Components": [
+      {
+        "__type": "Enemy",
+        "__guid": "090ee24e-fec6-4d61-9ff2-6c279e1f9da7",
+        "Health": 100,
+        "OnComponentDestroy": null,
+        "OnComponentDisabled": null,
+        "OnComponentEnabled": null,
+        "OnComponentFixedUpdate": null,
+        "OnComponentStart": null,
+        "OnComponentUpdate": null
+      },
+      {
+        "__type": "Sandbox.ModelRenderer",
+        "__guid": "6427afaf-dd05-4c71-8ac3-ca53a0b76316",
+        "BodyGroups": 18446744073709551615,
+        "CreateAttachments": false,
+        "MaterialGroup": null,
+        "MaterialOverride": null,
+        "Model": "models/shrek1.vmdl",
+        "OnComponentDestroy": null,
+        "OnComponentDisabled": null,
+        "OnComponentEnabled": null,
+        "OnComponentFixedUpdate": null,
+        "OnComponentStart": null,
+        "OnComponentUpdate": null,
+        "RenderOptions": {
+          "GameLayer": true,
+          "OverlayLayer": false,
+          "BloomLayer": false,
+          "AfterUILayer": false
+        },
+        "RenderType": "On",
+        "Tint": "1,1,1,1"
+      }
+    ]
+  },
+  "ShowInMenu": false,
+  "MenuPath": null,
+  "MenuIcon": null,
+  "DontBreakAsTemplate": false,
+  "ResourceVersion": 1,
+  "__references": [
+    "azumangafans.shrek-ragdoll#37192"
+  ],
+  "__version": 1
+}

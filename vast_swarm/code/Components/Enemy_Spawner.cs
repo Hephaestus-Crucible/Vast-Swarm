@@ -1,5 +1,5 @@
 using Sandbox;
-using System.Collections.ObjectModel;
+using System.Collections.Generic;
 
 public partial class EnemySpawner : Component
 {
@@ -10,7 +10,7 @@ public partial class EnemySpawner : Component
 	private TimeSince _timeSinceLastSpawn;
 	private List<Enemy> _activeEnemies = new();
 
-	public override void OnStart()
+	protected override void OnStart()
 	{
 		_timeSinceLastSpawn = 0;
 	}
@@ -25,26 +25,33 @@ public partial class EnemySpawner : Component
 		}
 
 		//Removing any dead enemies
-		_activeEnemies.RemoveAll( equals => !equals.isValid() );
+		_activeEnemies.RemoveAll( e => e.GameObject == null || !e.GameObject.IsValid );
 	}
 
-	public void SpawnEnemy()
+	private void SpawnEnemy()
 	{
 		if ( SpawnPoints.Count == 0 ) return;
 
-		//Picking a random spawn point
 		Vector3 spawnPos = SpawnPoints[Game.Random.Int( 0, SpawnPoints.Count - 1 )];
 
-		//Create an enemy instance
-		var enemy = new GameObject();
-		enemy.Components.Create<Enemy>(); //Attack the Enemy Component
-		enemy.WorldPosition = spawnPos; //Setting the spawn position
+		// Create a new GameObject in the scene
+		var enemyObject = new GameObject();
+		enemyObject.WorldPosition = spawnPos; // Set the spawn position
 
-		_activeEnemies.Add( enemy.Components.Get<Enemy>()); //Track the enemy
+		// Attach the Enemy component to the GameObject
+		var enemyComponent = enemyObject.Components.Create<Enemy>();
+
+		if ( enemyComponent != null )
+		{
+			_activeEnemies.Add( enemyComponent );
+		}
 	}
 
 
 
-	
+
+
+
+
 
 }
