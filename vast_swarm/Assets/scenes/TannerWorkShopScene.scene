@@ -504,36 +504,6 @@
           "Static": false,
           "Surface": null,
           "SurfaceVelocity": "0,0,0"
-        },
-        {
-          "__type": "BarrierInteract",
-          "__guid": "334eb320-8656-492f-862b-ee1ee9574d72",
-          "Barrier": {
-            "_type": "component",
-            "component_id": "c7adb44e-eeac-46bd-9a99-a13f59c137b9",
-            "go": "7bd8be2a-e051-442f-aaf8-5e5b5e4bee81",
-            "component_type": "Barrier"
-          },
-          "BarrierUI": null,
-          "OnComponentDestroy": null,
-          "OnComponentDisabled": null,
-          "OnComponentEnabled": null,
-          "OnComponentFixedUpdate": null,
-          "OnComponentStart": null,
-          "OnComponentUpdate": null
-        },
-        {
-          "__type": "Barrier",
-          "__guid": "c7adb44e-eeac-46bd-9a99-a13f59c137b9",
-          "DestroyDelay": 1,
-          "OnComponentDestroy": null,
-          "OnComponentDisabled": null,
-          "OnComponentEnabled": null,
-          "OnComponentFixedUpdate": null,
-          "OnComponentStart": null,
-          "OnComponentUpdate": null,
-          "RaiseHeight": 200,
-          "RaiseSpeed": 5
         }
       ],
       "Children": [
@@ -557,16 +527,6 @@
               "Scale": 1,
               "ScaleStrategy": "ConsistentHeight",
               "ZIndex": 100
-            },
-            {
-              "__type": "Sandbox.BarrierUI",
-              "__guid": "dd59be2d-25db-4576-96f6-4973753ba444",
-              "OnComponentDestroy": null,
-              "OnComponentDisabled": null,
-              "OnComponentEnabled": null,
-              "OnComponentFixedUpdate": null,
-              "OnComponentStart": null,
-              "OnComponentUpdate": null
             }
           ]
         }
