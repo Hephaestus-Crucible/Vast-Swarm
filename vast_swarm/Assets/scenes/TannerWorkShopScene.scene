@@ -158,6 +158,7 @@
       "Name": "Player1",
       "Position": "-66.77874,-161.0583,2.285171",
       "Rotation": "-0.002473853,0.009922614,0.241897,0.970248",
+      "Tags": "player",
       "Enabled": true,
       "Components": [
         {
@@ -467,7 +468,7 @@
           "__guid": "94d2dba9-04e3-4357-b4ba-293b26521bfd",
           "Center": "0,0,0",
           "Friction": null,
-          "IsTrigger": false,
+          "IsTrigger": true,
           "OnComponentDestroy": null,
           "OnComponentDisabled": null,
           "OnComponentEnabled": null,
@@ -478,7 +479,7 @@
           "OnObjectTriggerExit": null,
           "OnTriggerEnter": null,
           "OnTriggerExit": null,
-          "Scale": "50,50,50",
+          "Scale": "200,75,50",
           "Static": false,
           "Surface": null,
           "SurfaceVelocity": "0,0,0"
